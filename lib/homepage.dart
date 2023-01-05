@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/question.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,8 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int questionIndex = 0;
-  var questions = [
+  int _questionIndex = 0;
+  final _questions = [
     'Which team won the 2017 NBA finals?',
     'Who is the winner of 2018 NBA Slam Dunk Contest?',
     'Which team has won the most NBA titles?',
@@ -21,8 +21,8 @@ class _HomePageState extends State<HomePage> {
 
   void answerQuestion() {
     setState(() {
-      questionIndex++;
-      debugPrint('$questionIndex');
+      _questionIndex++;
+      debugPrint('$_questionIndex');
     });
   }
 
@@ -38,13 +38,8 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                questions[questionIndex],
-                style: GoogleFonts.poppins(fontSize: 22),
-                textAlign: TextAlign.center,
-              ),
+            Question(
+              questionText: _questions[_questionIndex],
             ),
             const SizedBox(
               height: 20,
