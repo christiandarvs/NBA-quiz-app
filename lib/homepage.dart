@@ -79,6 +79,18 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ))
-            : const Result());
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Result(),
+                  ElevatedButton(
+                      onPressed: (() {
+                        setState(() {
+                          _questionIndex = 0;
+                        });
+                      }),
+                      child: const Text('Retake Quiz'))
+                ],
+              ));
   }
 }
